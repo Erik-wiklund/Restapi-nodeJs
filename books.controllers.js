@@ -1,4 +1,15 @@
 const { Request, Response, NextFunction } = require("express");
+const books = require('./booksDb');
+
+// const bookIdIndex = 1;
+// const books = [
+//   {
+//     id: 0,
+//     name: "palettblad",
+//     antalsidor: 5,
+//   },
+// ];
+
 
 /**
  * Responds with all the books from db
