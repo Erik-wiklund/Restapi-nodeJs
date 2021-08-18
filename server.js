@@ -1,5 +1,5 @@
-const exp = require('constants');
 const express = require('express');
+const booksRouter = require('./books.router');
 
 // Create server application
 const app = express();
@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 
 // Add resources
+app.use(booksRouter);
 
 // Error handlers
 
