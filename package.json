@@ -1,0 +1,24 @@
+{
+  "name": "restapi-nodejs",
+  "version": "1.0.0",
+  "description": "Apinodejs",
+  "private": "true",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erik-wiklund/Restapi-nodeJs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erik-wiklund/Restapi-nodeJs/issues"
+  },
+  "homepage": "https://github.com/Erik-wiklund/Restapi-nodeJs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
