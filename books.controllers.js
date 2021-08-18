@@ -26,7 +26,7 @@ function getBooks(req, res, next) {
  * Responds with the requested book or nothing if not found
  * @param {Request} req
  * @param {Response} res
- * @param {NextFunction} nex
+ * @param {NextFunction} next
  */
 
 function getOneBook(req, res, next) {
@@ -41,8 +41,24 @@ function getOneBook(req, res, next) {
   }
 };
 
+/**
+ * Responds with status if posted or not
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ */
+
+function CreatedNewBook(req,res,next) {
+    if (req.body) {
+        books.push(req.body);
+        res.status(201).json(req.body);
+    }
+    res.status(500).json('Missing body');
+}
+
 // Export modules
 module.exports = {
     getOneBook,
-    getBooks
+    getBooks,
+    CreatedNewBook
 };
