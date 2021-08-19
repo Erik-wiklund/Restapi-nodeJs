@@ -22,7 +22,7 @@ function createBook(req, res, next) {
   } else res.status(500).json("Missing body");
 }
 
-// Module for export db
+// Modules for export db
 module.exports = {
   books,
   createBook,
