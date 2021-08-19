@@ -1,9 +1,29 @@
+// In-memory db
+let bookIdIndex = 1;
+const books = [
+  {
+    id: 0,
+    name: "Test",
+    pages: 500,
+  },
+];
 
-  const books = [];
-  let bookId = 0;
-function setId(book) {
-  book.id = bookId++;
-  books.push(book);
+/**
+ * Responds with status if posted or not
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ */
+function createBook(req, res, next) {
+  if (req.body) {
+    const book = { ...req.body, id: bookIdIndex++ };
+    books.push(book);
+    res.status(201).json(book);
+  } else res.status(500).json("Missing body");
 }
+
 // Module for export db
-module.exports = books;
+module.exports = {
+  books,
+  createBook,
+};
