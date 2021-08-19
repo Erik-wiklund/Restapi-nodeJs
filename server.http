@@ -11,3 +11,19 @@ Content-Type: application/json
     "name": "test",
     "pages": 500
 }
+
+###
+
+PUT http://localhost:3000/api/books/0
+Content-Type: application/json
+
+{
+    "name": "Erikk",
+    "pages": 450
+}
+
+###
+
+DELETE http://localhost:3000/api/books/0
+
+
