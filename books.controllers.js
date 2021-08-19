@@ -18,7 +18,12 @@ const books = require("./booksDb");
  */
 
 function getBooks(req, res, next) {
-  res.json(books);
+  if (books == 0) {
+    res.status(404).json(`No books found`);
+  } else {
+    res.json(books);
+  }
+  
 }
 
 /**
@@ -34,7 +39,7 @@ function getOneBook(req, res, next) {
   const book = books.find((book) => book.id == id);
 
   if (!book) {
-    res.status(404).json(`Book with ${id} not found`);
+    res.status(404).json(`Book with ID ${id} not found`);
   } else {
     res.status(200).json(book);
   }
@@ -67,7 +72,7 @@ function updateBook(req, res, next) {
    const book = books.find((book) => book.id == id);
 
    if (!book) {
-    res.status(404).json(`Book with ${id} not found`);
+    res.status(404).json(`Book with ID ${id} not found`);
   } else {
     let updated = {
           id: book.id,
@@ -77,13 +82,8 @@ function updateBook(req, res, next) {
       let targetIndex = books.indexOf(book);
 
      books.splice(targetIndex, 1, updated);
+     res.status(200).json(`Book with ID ${id} updated`);     
     };
-    res.status(200).json(`Book with ID ${id} updated`);
-  
-
-  
-  
-      
 };
 
 /**
@@ -98,14 +98,12 @@ function deleteBook(req,res,next) {
   const book = books.find((book) => book.id == id);
 
   if (!book) {
-    res.status(404).json(`Book with ${id} not found`);
+    res.status(404).json(`Book with ID ${id} not found`);
   } else {
     let targetIndex = books.indexOf(book);
     books.splice(targetIndex,1);
     res.status(200).json(`Book with ID ${id} deleted`);
-  }
-
-  
+  }  
 }
 
 // Export modules

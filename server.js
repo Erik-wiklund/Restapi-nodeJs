@@ -10,7 +10,14 @@ app.use(express.json());
 // Add resources
 app.use(booksRouter);
 
-// Error handlers
+// 404 error handler
+app.use((req, res) => res.status(404).json("Resource not found"));
+
+// add error handler
+app.use((err, req, res, next) => {
+  console.trace(err);
+  res.status(500).json("something went wrong..");
+});
 
 // Start the server
 app.listen(3000);
