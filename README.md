@@ -12,8 +12,8 @@
 - [x] Samtliga endpoints skall kunna nås via en REST Client fil (.rest|.http)
 - [x] Datan som API:et hanterar sparas lokalt i serverfilen
 - [x] Git & GitHub har använts
-- [ ] Projektmappen innehåller en README.md fil - (läs ovan för mer info)
-- [ ] Uppgiften lämnas in i tid!
+- [x] Projektmappen innehåller en README.md fil - (läs ovan för mer info)
+- [x] Uppgiften lämnas in i tid!
 
 ### Ärendelista VG
 - [x] Alla punkter för godkänt är uppfyllda
