@@ -1,19 +1,18 @@
 // file for making requests to endpoints
 GET http://localhost:3000/api/books/
-
 ###
 
 POST http://localhost:3000/api/books
 Content-Type: application/json
 
 {
-    "name": "test",
-    "pages": 500
+    "name": "testar",
+    "pages": 50
 }
 
 ###
 
-PUT http://localhost:3000/api/books/1
+PUT http://localhost:3000/api/books/
 Content-Type: application/json
 
 {
@@ -23,6 +22,6 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/books/1
+DELETE http://localhost:3000/api/books/3552c4d0-051d-11ec-ba29-7f5fc216cdeb
 
 
