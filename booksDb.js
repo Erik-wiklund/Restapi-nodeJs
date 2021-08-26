@@ -1,12 +1,11 @@
+const {v1: uuidv1} = require('uuid');
+
 // In-memory db
-let bookIdIndex = 1;
-const books = [
-  {
-    id: 0,
-    name: "Test",
-    pages: 500,
-  },
-];
+const books = [{
+  name: "Testar",
+  pages: 500,
+  id: 0
+}];
 
 /**
  * Responds with status if posted or not
@@ -14,8 +13,9 @@ const books = [
  * @param {Response} res
  */
 function createBookInDB(req, res) {
+
   if (req.body) {
-    const book = { ...req.body, id: bookIdIndex++ };
+    const book = { ...req.body, id: uuidv1() };
     books.push(book);
     res.status(201).json(book);
   } else res.status(500).json("Missing body");
@@ -31,19 +31,19 @@ function updateBookInDb(req, res) {
   const book = books.find((book) => book.id == id);
 
   if (!book) {
-   res.status(404).json(`Book with ID ${id} not found`);
- } else {
-   let updated = {
-         id: book.id,
-         name: req.body.name,
-         pages: req.body.pages,
-     };
-     let targetIndex = books.indexOf(book);
+    res.status(404).json(`Book with ID ${id} not found`);
+  } else {
+    let updated = {
+      id: book.id,
+      name: req.body.name,
+      pages: req.body.pages,
+    };
+    let targetIndex = books.indexOf(book);
 
     books.splice(targetIndex, 1, updated);
-    res.status(200).json(`Book with ID ${id} updated`);   
-   };
-};
+    res.status(200).json(`Book with ID ${id} updated`);
+  }
+}
 
 /**
  * Responds with status if deleted
@@ -51,7 +51,7 @@ function updateBookInDb(req, res) {
  * @param {Response} res
  */
 
- function deleteBookInDb(req,res) {
+function deleteBookInDb(req, res) {
   const { id } = req.params;
   const book = books.find((book) => book.id == id);
 
@@ -59,9 +59,9 @@ function updateBookInDb(req, res) {
     res.status(404).json(`Book with ID ${id} not found`);
   } else {
     let targetIndex = books.indexOf(book);
-    books.splice(targetIndex,1);
+    books.splice(targetIndex, 1);
     res.status(200).json(`Book with ID ${id} deleted`);
-  }  
+  }
 }
 
 // Modules for export db
@@ -69,5 +69,5 @@ module.exports = {
   books,
   createBookInDB,
   updateBookInDb,
-  deleteBookInDb
+  deleteBookInDb,
 };
