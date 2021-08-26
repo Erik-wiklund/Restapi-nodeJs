@@ -22,7 +22,6 @@ function getAllBooks(req, res) {
 function getBookById(req, res) {
   const { id } = req.params;
   const book = books.find((book) => book.id == id);
-
   if (!book) {
     res.status(404).json(`Book with ID ${id} not found`);
   } else {
