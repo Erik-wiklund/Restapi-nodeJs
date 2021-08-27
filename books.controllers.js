@@ -1,17 +1,17 @@
 const { Request, Response } = require("express");
-const {books} = require("./booksDb");
+const { books } = require("./booksDb");
 
 /**
  * Responds with all the books or no books
  * @param {Request} req
  * @param {Response} res
  */
-function getAllBooks(req, res) {
+function getAllBooks(res) {
   if (books == 0) {
     res.status(404).json(`No books found`);
   } else {
     res.json(books);
-  } 
+  }
 }
 
 /**
@@ -26,11 +26,11 @@ function getBookById(req, res) {
     res.status(404).json(`Book with ID ${id} not found`);
   } else {
     res.status(200).json(book);
-  };
-};
+  }
+}
 
 // Export modules
 module.exports = {
   getBookById,
-  getAllBooks
+  getAllBooks,
 };

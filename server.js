@@ -1,5 +1,5 @@
-const express = require('express');
-const booksRouter = require('./books.router');
+const express = require("express");
+const booksRouter = require("./books.router");
 
 // Create server application
 const app = express();
@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(booksRouter);
 
 // 404 error handler
-app.use((req, res) => res.status(404).json("Resource not found"));
+app.use((res) => res.status(404).json("Resource not found"));
 
 // add error handler
-app.use((err, req, res, next) => {
+app.use((err, res) => {
   console.trace(err);
   res.status(500).json("something went wrong..");
 });
