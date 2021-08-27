@@ -1,7 +1,10 @@
 // file for making requests to endpoints
-GET http://localhost:3000/api/books/
+
+// GET all books in array
+GET http://localhost:3000/api/books/aa21cdd0-0746-11ec-bf41-81ca6e9c50dd
 ###
 
+// Post new book with name and number of pages to array
 POST http://localhost:3000/api/books
 Content-Type: application/json
 
@@ -12,16 +15,28 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/books/
+// Post with empty body to test how response it
+POST http://localhost:3000/api/books
 Content-Type: application/json
 
 {
-    "name": "Erikk",
-    "pages": 450
+   
 }
 
 ###
 
-DELETE http://localhost:3000/api/books/3552c4d0-051d-11ec-ba29-7f5fc216cdeb
+// Update "Book" by its id
+PUT http://localhost:3000/api/books/751aab70-0746-11ec-b390-e39af917d79e
+Content-Type: application/json
+
+{
+    "name": "Test",
+    "pages": 500
+}
+
+###
+
+// Deletes one "Book" from array by its id
+DELETE http://localhost:3000/api/books/e5941320-0744-11ec-ba5a-8b0838030418
 
 
