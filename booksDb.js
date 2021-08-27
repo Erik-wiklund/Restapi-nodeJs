@@ -1,11 +1,13 @@
-const {v1: uuidv1} = require('uuid');
+const { v1: uuidv1 } = require("uuid");
 
 // In-memory db
-const books = [{
-  name: "Testar",
-  pages: 500,
-  id: 0
-}];
+const books = [
+  {
+    name: "Testar",
+    pages: 500,
+    id: 0,
+  },
+];
 
 /**
  * Responds with status if posted or not
@@ -13,12 +15,15 @@ const books = [{
  * @param {Response} res
  */
 function createBookInDB(req, res) {
-
-  if (req.body) {
+  if (!req.body.name || !req.body.pages) {
+    console.log(req.body);
+    res.status(500).json({Message: "Please type name and number of pages in the correct format"});
+  } else {
     const book = { ...req.body, id: uuidv1() };
     books.push(book);
-    res.status(201).json(book);
-  } else res.status(500).json("Missing body");
+    res.status(201).json({Message: "Book successfully added"});
+    console.log(book);
+  }
 }
 
 /**
@@ -32,7 +37,11 @@ function updateBookInDb(req, res) {
 
   if (!book) {
     res.status(404).json(`Book with ID ${id} not found`);
-  } else {
+  }
+  else if (!req.body.name || !req.body.pages) {
+    res.status(500).json({Message: "Please type name and number of pages in the correct format"});
+  }
+  else {
     let updated = {
       id: book.id,
       name: req.body.name,
