@@ -4,7 +4,8 @@
 #### För att kunna köra programmet och testa requests via Rest så måste man först klona ner projektet från git hub. Öppna sedan kommandotolken eller shell och skriv "git clone https://github.com/Erik-wiklund/Restapi-nodeJs.git". Sedan måste man stå i rätt folder och skriver "code ." för att starta vscode.
 #### Länk: https://github.com/Erik-wiklund/Restapi-nodeJs.git
 #### För att kunna köra programmet via sitt startscript så måste man först installera "nodemon" och dess filer.
-#### Detta görs genom att köra kommandot "npm i nodemon" När detta är klart så kan man köra programmet för att testa via Rest.
+#### Detta görs genom att köra kommandot "npm i nodemon" i terminalen. När detta är klart så kan man köra programmet för att testa via Rest.
+#### Starta programmet via terminalen med kommandot "npm start". Gå sedan till server.http för att köra requests.
 
 
 
