@@ -1,4 +1,4 @@
-## Titel: Node Restapi
+## <p align = "center">Titel: Node Restapi</p>
 #### Info om projeketet: Detta projekt har delats upp i olika delar, tex så lade jag Post, Update och Delete direkt i en egen Dbfil så jag ttycker att de har en starkare koppling direkt till databasen. Get ligger kvar med sina funktioner i controllerfilen. Allt sköts sen via router som via funktion skickar en signal via route och till api som gör den request som gjorts. I sjävla serverfilen så är serverns startpunkt och vissa errorhandlers.
 
 #### För att kunna köra programmet och testa requests via Rest så måste man först klona ner projektet från git hub.
