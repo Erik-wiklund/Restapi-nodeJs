@@ -6,7 +6,7 @@ const { books } = require("./booksDb");
  * @param {Request} req
  * @param {Response} res
  */
-function getAllBooks(res) {
+function getAllBooks(req,res) {
   if (books == 0) {
     res.status(404).json(`No books found`);
   } else {
